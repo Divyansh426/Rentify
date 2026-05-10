@@ -3,5 +3,8 @@ providers = ["python"]
 [phases.setup]
 nixPkgs = ["python311Full"]
 
+[phases.build]
+cmds = ["python manage.py migrate"]
+
 [start]
 cmd = "gunicorn backend.wsgi --bind 0.0.0.0:$PORT --workers 2"
