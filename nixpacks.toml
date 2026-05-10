@@ -1,13 +1,7 @@
 providers = ["python"]
 
 [phases.setup]
-nixPkgs = ["python311Full", "postgresql"]
-
-[phases.install]
-cmds = ["pip install -r requirements.txt"]
-
-[phases.build]
-cmds = ["python manage.py collectstatic --noinput"]
+nixPkgs = ["python311Full"]
 
 [start]
 cmd = "gunicorn backend.wsgi --bind 0.0.0.0:$PORT --workers 2"
