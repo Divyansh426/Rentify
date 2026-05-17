@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "gunicorn backend.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120",
+    "startCommand": "python manage.py migrate --run-syncdb && gunicorn backend.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 2 --timeout 120",
     "healthcheckPath": "/api/health/",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",

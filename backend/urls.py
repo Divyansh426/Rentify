@@ -4,10 +4,7 @@ from django.http import JsonResponse, HttpResponse
 
 
 def health_check(request):
-    return JsonResponse({
-        'status': 'ok',
-        'message': 'Rentify API is running'
-    })
+    return JsonResponse({'status': 'ok', 'message': 'Rentify API is running'})
 
 
 def home(request):
