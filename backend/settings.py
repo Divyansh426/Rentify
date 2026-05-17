@@ -9,6 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*').split(',')
+# Always allow Railway healthcheck
+ALLOWED_HOSTS += ['healthcheck.railway.app', '.railway.app']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
